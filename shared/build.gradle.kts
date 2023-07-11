@@ -23,6 +23,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
+            isStatic = true
         }
     }
 
@@ -48,6 +49,6 @@ android {
     namespace = "dev.vladleesi.githubitty"
     compileSdk = 33
     defaultConfig {
-        minSdk = 24
+        minSdk = 21
     }
 }

@@ -21,19 +21,22 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
+      - name: Build Android app
+        run: ./gradlew assembleDebug
+
+      - name: Build iOS shared code
+        run: ./gradlew :shared:compileKotlinIosArm64
 
       - name: Run unit tests
         run: ./gradlew test
 
-#      - name: Run Android tests
-#        uses: reactivecircus/android-emulator-runner@v2
-#        with:
-#          api-level: 29
-#          arch: x86
-#          profile: Nexus 6
-#          script: ./gradlew connectedCheck --stacktrace
+      #      - name: Run Android tests
+      #        uses: reactivecircus/android-emulator-runner@v2
+      #        with:
+      #          api-level: 29
+      #          arch: x86
+      #          profile: Nexus 6
+      #          script: ./gradlew connectedCheck --stacktrace
 
       - name: Push to master branch
         if: ${{ success() }}

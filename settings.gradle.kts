@@ -31,5 +31,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "githubitty"
-include(":androidApp")
-include(":shared")
+include(":androidApp", ":shared")
